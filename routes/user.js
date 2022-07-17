@@ -5,5 +5,6 @@ const router = express.Router();
 router.route("/signup").post(userController.signUp)
 router.route("/login").post(userController.login)
 router.route("/getallusers").get(userController.getAllUsers)
-router.route("/user/:id").delete(middleware.hasToken, userController.deleteUser)
+router.route("/user/:id").delete(userController.deleteUser).patch(userController.updateUser)
+.get(userController.getUserByID)
 module.exports = router;

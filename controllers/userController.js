@@ -66,7 +66,26 @@ const deleteUser = async(req, res) => {
 
 }
 
+const getUserByID = async(req, res) =>{
+  const {id} = req.params;
+  const user = await User.findById(id);
+  if(user){
+    res.status(200).json(user)
+  }
+  else{
+    res.status(500).json({msg: err})
+  }
+}
+
+const updateUser = async(req, res) => {
+  const {id} = req.params;
+  const updateUser = await User.findByIdAndUpdate(id, req.body, {
+    new: true
+  });
+  res.status(200).json(updateUser)
+}
+
 
 module.exports = {
-    signUp, login, getAllUsers, deleteUser
+    signUp, login, getAllUsers, deleteUser, updateUser, getUserByID
 }
