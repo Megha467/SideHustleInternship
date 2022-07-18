@@ -44,6 +44,7 @@ const login=(req, res) => {
   });
 }
 
+
 const getAllUsers = async (req, res) => {
   const users = await User.find();
   if(users){
@@ -51,8 +52,7 @@ const getAllUsers = async (req, res) => {
   }
   else{
     res.status(401).send({msg:'Users are not registered'})
-  }
-}
+  }}
 
 const deleteUser = async(req, res) => {
   const {id} = req.params;
@@ -62,9 +62,7 @@ const deleteUser = async(req, res) => {
   }
   else{
     res.status(401).send({msg:'No user with this ID exist'})
-  }
-
-}
+  }}
 
 const getUserByID = async(req, res) =>{
   const {id} = req.params;
@@ -74,8 +72,7 @@ const getUserByID = async(req, res) =>{
   }
   else{
     res.status(500).json({msg: err})
-  }
-}
+  }}
 
 const updateUser = async(req, res) => {
   const {id} = req.params;
@@ -84,8 +81,12 @@ const updateUser = async(req, res) => {
   });
   res.status(200).json(updateUser)
 }
-
+const sum = () => {
+ // return 1 +2;
+ return ({name: 'megha'})
+}
 
 module.exports = {
-    signUp, login, getAllUsers, deleteUser, updateUser, getUserByID
+    signUp, login, getAllUsers, deleteUser, updateUser, getUserByID, sum
+    
 }

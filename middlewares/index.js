@@ -15,4 +15,7 @@ const hasToken = (req, res, next) => {
       return res.status(401).send({msg:err})
     }
   }
+
+  
+  
 module.exports = {hasToken}  
